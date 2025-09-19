@@ -106,6 +106,9 @@ a:hover {
     color: #888;
     text-align: center;
     margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* --- Article Sections --- */
@@ -127,46 +130,70 @@ a:hover {
     margin-bottom: 20px;
 }
 
-/* --- Instagram & Contact Specifics --- */
-.instagram-widget-container {
+/* ** UPDATED: CSS for the 3-column photo gallery ** */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
     margin-top: 30px;
 }
 
-/* ** NEW CODE FOR 3-COLUMN GRID **
-This code will format the content inside your widget container.
-It uses CSS Grid to create the columns.
-*/
-.instagram-widget-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    gap: 15px; /* Adjust the space between photos */
-}
-
-/* This targets the widget itself (often an iframe) to remove extra borders */
-.instagram-widget-container > iframe {
-    border: 0 !important;
-    width: 100% !important;
-}
-/* This is a fallback for other widget types */
-:where(.instagram-widget-container > *) {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    aspect-ratio: 1 / 1; /* Makes the images square */
-}
-
-.instagram-placeholder {
-    border: 1px solid #e5e5e5;
-    padding: 80px;
+/* NEW: Style for collection titles (h3) */
+.collection-title {
+    grid-column: 1 / -1; /* This makes the title span all 3 columns */
+    font-family: 'Libre Baskerville', serif;
     text-align: center;
-    color: #888;
-    font-size: 1.2rem;
-    background-color: #fdfdfd;
-    /* The placeholder should span all 3 columns */
-    grid-column: 1 / -1; 
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* MODIFIED: The <figure> is now the grid item */
+.photo-gallery figure {
+    margin: 0;
+    position: relative; /* Needed for the caption overlay */
+    overflow: hidden; /* Hides parts of the caption that might stick out */
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    display: block; /* Removes any extra space below the image */
+}
+
+/* NEW: Beautiful overlay style for the image figcaptions */
+.photo-gallery figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: white;
+    padding: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+
+    /* Single-line properties */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    /* Hover Effect */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* This makes the caption appear when you hover over the figure */
+.photo-gallery figure:hover figcaption {
+    opacity: 1;
 }
 
 
+/* --- Contact Specifics --- */
 .contact-details {
     display: flex;
     justify-content: space-around;
@@ -214,23 +241,6 @@ It uses CSS Grid to create the columns.
     font-size: 0.9rem;
 }
 
-
-/* This creates the 3-column grid layout */
-.photo-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    gap: 15px; /* The space between photos */
-    margin-top: 30px;
-}
-
-/* This resizes every image inside the gallery */
-.photo-gallery img {
-    width: 100%; /* Makes the image fill the column's width */
-    height: 100%; /* Makes the image fill the column's height */
-    object-fit: cover; /* Important: crops the image to fit without stretching */
-    aspect-ratio: 1 / 1; /* Makes all images perfectly square */
-}
-
 /* --- Responsive for smaller screens --- */
 @media (max-width: 768px) {
     .article-header h1 {
@@ -243,18 +253,16 @@ It uses CSS Grid to create the columns.
         margin-bottom: 30px;
     }
     .main-nav a:not(:last-child):not(:nth-last-child(2)) {
-        display: none; /* Hide text links on mobile */
+        display: none;
     }
-    /* NEW: Change to 2 columns on tablets */
-    .instagram-widget-container {
+    .photo-gallery {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    /* NEW: Change to 1 column on phones */
-    .instagram-widget-container {
+    .photo-gallery {
         grid-template-columns: 1fr;
     }
 }

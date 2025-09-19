@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -41,24 +42,60 @@
                 <img src="images/image.jpg" alt="Marcelly Tania haute couture dress">
                 <figcaption>A Chloe design by Marcelly Tania</figcaption>
             </figure>
+
             <section id="portfolio" class="article-section">
                 <h2>Portfolio</h2>
-                <p>A curated collection of signature pieces and recent work. Follow on <a href="https://www.instagram.com/marcellytania/" target="_blank">Instagram</a> for the latest updates.</p>
+                <p>A curated collection of signature pieces and recent work. Click on any image to enlarge. Follow on <a href="https://www.instagram.com/marcellytania/" target="_blank">Instagram</a> for the latest updates.</p>
 
                 <div class="photo-gallery">
-                    <img src="images/Blue/Image1.jpg" alt="Baby Blue Barbie Dress">
-                    <img src="images/Blue/Image2.jpg" alt="Another Blue Dress Design">
-                    <img src="images/Blue/Image3.jpg" alt="Elegant Blue Gown"> 
-                    <figcaption>Baby Blue Barbie Dress</figcaption>
-                </div>
-                <div class="photo-gallery">
-                    <img src="images/Pink/Image1.jpg" alt="Custom Pink Creation">
-                    <img src="images/Pink/Image2.jpg" alt="Another Pink Dress Design">
-                    <img src="images/Pink/Image3.jpg" alt="Elegant Pink Gown">
-                    <figcaption>Radiant in champagne gold gown</figcaption>
-                </div>
+                    
+                        <h3 class="collection-title">The Blue Collection</h3>
 
+                        <figure>
+                            <a href="images/Blue/Image1.jpg" class="glightbox" data-gallery="blue-collection">
+                                <img src="images/Blue/Image1.jpg" alt="Baby Blue Barbie Dress">
+                            </a>
+                            <figcaption>Baby Blue Barbie Dress</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="images/Blue/Image2.jpg" class="glightbox" data-gallery="blue-collection">
+                                <img src="images/Blue/Image2.jpg" alt="Another Blue Dress Design">
+                            </a>
+                            <figcaption>Another Blue Dress Design</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="images/Blue/Image3.jpg" class="glightbox" data-gallery="blue-collection">
+                                <img src="images/Blue/Image3.jpg" alt="Elegant Blue Gown">
+                            </a>
+                            <figcaption>Elegant Blue Gown</figcaption>
+                        </figure>
+
+                        <h3 class="collection-title">The Gold Collection</h3>
+
+                        <figure>
+                            <a href="images/Pink/Image1.jpg" class="glightbox" data-gallery="pink-collection">
+                                <img src="images/Pink/Image1.jpg" alt="Custom Pink Creation">
+                            </a>
+                            <figcaption>Custom Gold Creation</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="images/Pink/Image2.jpg" class="glightbox" data-gallery="pink-collection">
+                                <img src="images/Pink/Image2.jpg" alt="Another Pink Dress Design">
+                            </a>
+                            <figcaption>Radiant Champagne Gown</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="images/Pink/Image3.jpg" class="glightbox" data-gallery="pink-collection">
+                                <img src="images/Pink/Image3.jpg" alt="Elegant Pink Gown">
+                            </a>
+                            <figcaption>Elegant Gold Gown</figcaption>
+                        </figure>
+
+                </div>
             </section>
+
+
+
 
             <section id="contact" class="article-section">
                 <h2>Contact & Inquiries</h2>
@@ -84,6 +121,14 @@
             </section>
 
         </article>
+
+        <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+        <script>
+            const lightbox = GLightbox({
+                loop: true, /* Allows you to loop through gallery images */
+            });
+        </script>
     </main>
 
     <footer class="main-footer">
